@@ -1,0 +1,39 @@
+import win32com.client
+import comtypes.client
+import os
+
+# version of your Office PowerPoint, 32 or 64
+BITS = 32
+
+if BITS == 32:
+    def init_powerpoint():
+        powerpoint = win32com.client.DispatchEx("Powerpoint.Application")
+        powerpoint.Visible = 1
+        return powerpoint
+elif BITS == 64:
+    def init_powerpoint():
+        powerpoint = comtypes.client.CreateObject("Powerpoint.Application")
+        powerpoint.Visible = 1
+        return powerpoint
+
+def ppt_to_pdf(powerpoint, inputFileName, outputFileName, formatType = 32):
+    if outputFileName[-3:] != 'pdf':
+        outputFileName = outputFileName + ".pdf"
+    deck = powerpoint.Presentations.Open(inputFileName)
+    deck.SaveAs(outputFileName, formatType) # formatType = 32 for ppt to pdf
+    deck.Close()
+
+def convert_files_in_folder(powerpoint, folder):
+    files = os.listdir(folder)
+    pptfiles = [f for f in files if f.endswith((".ppt", ".pptx"))]
+    for pptfile in pptfiles:
+        fullpath = os.path.join(folder, pptfile)
+        inputPath = fullpath
+        outputPath = os.path.splitext(fullpath)[0]
+        ppt_to_pdf(powerpoint, inputPath, outputPath)
+
+if __name__ == "__main__":
+    powerpoint = init_powerpoint()
+    cwd = os.getcwd()
+    convert_files_in_folder(powerpoint, cwd)
+    powerpoint.Quit()
