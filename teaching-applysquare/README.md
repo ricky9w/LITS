@@ -11,7 +11,7 @@
 
 ## Usage
 
-配合 [Tampermonkey]([Tampermonkey • 首页](https://www.tampermonkey.net/)) 插件使用.
+配合 [Tampermonkey](https://www.tampermonkey.net/) 插件使用.
 
 ## Disclaimer
 
