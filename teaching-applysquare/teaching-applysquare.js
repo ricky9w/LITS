@@ -2,7 +2,7 @@
 // @name         教学立方课件下载脚本
 // @namespace    http://tampermonkey.net/
 // @version      0.6
-// @description  在课件页点击导航栏"显示下载链接", 无论课件是否开放下载权限. 仅作方便学习研究之用, 敬请尊重版权!
+// @description  在课件页点击导航栏"显示下载链接", 无论课件是否开放下载权限. 仅作学习研究之用, 敬请尊重版权!
 // @author       Richard
 // @match        https://teaching.applysquare.com/S/Course/index/cid/*
 // @grant        none
