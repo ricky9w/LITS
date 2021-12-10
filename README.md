@@ -1,2 +1,4 @@
 # LITS(Leave It to Scripts)
-Simple scripts to free your hands from tedious work
+Life is too short to waste time on repetitive tasks.
+
+Leave them to scripts!
